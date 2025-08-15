@@ -12,17 +12,17 @@ resolucao_dpi = 300
 print(f"Convertendo '{pdf_path}' para imagens com '{resolucao_dpi}' DPI...")
 
 try: 
-    imagens = convert_from_path(
+    images = convert_from_path(
         pdf_path,
         dpi =resolucao_dpi,
         output_folder = output_folder,
-        fnt='png',
-        path_only=False,
+        fmt='png',
+        paths_only=False,
     )
 
-    for i in enumerate(images):
+    for i, image in enumerate(images):
         image_filename = os.path.join(output_folder, f"pagina_enem_{i+1}.png")
-        image.save(image_filaname)
+        image.save(image_filename)
         print(f"Página '{i+1}' salva como '{image_filename}'")
 
 
